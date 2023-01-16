@@ -1,4 +1,4 @@
-1)
+2)
 INSERT INTO booksauthors
     (authorid,bookid)
 VALUES
@@ -10,38 +10,41 @@ VALUES
     (4,1)
 ;
 
-2)
+3)
 select country from authors;
 
-3)
+4)
 select DISTINCT country from authors;
 
-4)
+5)
 select name from authors where name like '%s';
 
-5)
+6)
 select country,count(id) from authors group by country;
 
-6)
+7)
 select * from authors order by name;
 
-7)
+8)
 select * from authors order by name DESC;
 
-8)
+9)
 select * from books where title like '%Great%';
 
-9)
+10)
 select * from authors where not country = 'USA';
 
-10)
+11)
 select * from authors where country ='USA' or country = 'India';
 
-11)
+12)
 select * from authors where age between 50 and 60;
 
-12)
+13)
+select a.id,b.id from authors a inner join authors b on a.id=b.id;
+
+14)
 select min(age) from authors ;
 
-13)
+15)
 select authors.name, booksauthors.bookid from authors inner join booksauthors on booksauthors.authorid=authors.id where booksauthors.bookid in ( select bookid from books);
