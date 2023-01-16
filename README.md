@@ -16,9 +16,9 @@ CREATE TABLE BooksAuthors (
 INSERT INTO BooksAuthors
 VALUES (1,2),
        (2,3),
-		(4,4),
-		(5,5),
-		(6,1);
+	(4,4),
+	(5,5),
+	(6,1);
     
 #Q3   
 - Write a statement that will select the Country column from the Authors table.
