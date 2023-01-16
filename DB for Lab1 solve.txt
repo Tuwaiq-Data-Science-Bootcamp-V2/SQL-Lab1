@@ -1,0 +1,69 @@
+Create a table "BooksAuthors" containing two fields ( AuthorId, BookId )
+ 1. CREATE TABLE BooksAuthors (
+     AuthorId INT NOT NULL,
+     BookId  INT NOT NULL,
+     FOREIGN KEY (AuthorId) REFERENCES Authors(Id),
+     FOREIGN KEY (BookId) REFERENCES Books(Id)
+ );
+Insert at least 5 records into the BooksAuthors table.
+ 2. insert into booksauthors
+ 	(authorid , bookid)
+ 	values
+ 	(1,2),
+ 	(2,3),
+ 	(4,5),
+ 	(6,7),
+        (8,9);
+  Write a statement that will select the Country column from the Authors table.
+ 3. select country 
+     from authors;
+
+Select all the different values from the Country column in the Authors table.
+4.select DISTINCT country from authors;
+
+Write an SQL query to return only Authors whose last name begins with S.
+5. select * from Authors 
+ 	select * from Authors 
+ 	where name like '% S%';
+
+List the number of Authors in each country.
+ 6. select  country,count(country) from authors
+ 	group by country;
+
+Select all records from the Authors table, sort the result alphabetically by the column first name.
+ 7. select * from authors 
+ 	order by name;
+
+
+Select all records from the Customers table, sort the result reversed alphabetically by the column last name.
+  8. select * from authors 
+ 	order by name desc;
+
+Select all records where the Title column has the value 'Great ' from Books table.
+ 9. select * from books where title like '%Great %';
+
+
+Use the NOT keyword to select all records where Country is NOT "USA".
+ 10. select * from authors where NOT country = 'USA';
+
+
+Select all records where the country column has the value 'USA' or 'India' from Authors table
+ 11. select * from authors where country ='USA' OR country ='India';
+
+Select all records where the age column has the value BETWEEN 50 - 60 in Authors table.
+ 12. select * from authors where age between 50 and 60;
+
+
+Use INNER to return the requested items with customers id.
+ 13. select * from books
+ 	inner join booksauthors
+ 	on books.id = booksauthors.bookid;
+
+Use the MIN function to select the record with the smallest value of the Age column from Authors table.
+ 14. select * from authors
+ 	where age = (select min(age) from authors);
+
+Choose the correct `JOIN` clause to view all books and their authors
+15. select authors.name , books.title
+from authors right outer join books on authors.id = books.id
+
