@@ -49,12 +49,13 @@ SELECT *
 FROM authors ORDER bY Name;
 ```
 - Select all records from the Customers table, sort the result reversed alphabetically by the column last name.
+1. by last name
 ```sql
 SELECT name
 FROM authors
 ORDER BY RIGHT(name, LENGTH(name)  -  STRPOS(name, ' ') ) DESC;
 ```
-Or
+2. by name
 ```sql
 SELECT * 
 FROM authors ORDER bY Name DESC;
@@ -90,6 +91,14 @@ FROM booksauthors AS BA
 INNER JOIN books AS B
 ON B.id = BA.bookid;
 ```
+Or
+```sql
+SELECT *
+FROM booksauthors AS BA
+INNER JOIN books AS B
+ON B.id = BA.bookid;
+```
+
 - Use the MIN function to select the record with the smallest value of the Age column from Authors table.
 ```sql
 SELECT * 
