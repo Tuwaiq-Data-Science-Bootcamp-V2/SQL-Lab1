@@ -31,4 +31,4 @@ select * from authors where age between 50 and 60;
 
 select min(age) from authors ;
 
-select authors.name, books.title from booksauthors,authors,books where  booksauthors.authorid=authors.id and booksauthors.bookid=books.id;
+select authors.name, booksauthors.bookid from authors inner join booksauthors on booksauthors.authorid=authors.id where booksauthors.bookid in ( select bookid from books);
