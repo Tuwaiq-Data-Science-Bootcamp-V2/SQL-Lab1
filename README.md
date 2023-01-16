@@ -66,3 +66,4 @@ select MIN(Age) from Authors ;
 - Choose the correct `JOIN` clause to view all books and their authors
 
 select  Authors.name , BooksAuthors.bookid from Authors INNER JOIN  BooksAuthors ON  BooksAuthors.Authorsid = authors.id where BooksAuthors.bookid IN (select bookid from books)  ; 
+
