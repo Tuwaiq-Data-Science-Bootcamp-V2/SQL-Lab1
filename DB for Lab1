@@ -48,3 +48,94 @@ CREATE TABLE BooksAuthors (
     FOREIGN KEY (AuthorId) REFERENCES Authors(Id),
     FOREIGN KEY (BookId) REFERENCES Books(Id)
 );
+
+
+-- LAB SOLUTION START FROM HERE:
+
+
+-- 2. Insert at least 5 records into the BooksAuthors table.
+INSERT INTO BooksAuthors (AuthorId,BookId)
+VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,4),
+(5,5);
+
+
+-- 3. Write a statement that will select the Country column from the Authors table.
+SELECT Country 
+FROM Authors;
+
+
+-- 4. Select all the different values from the Country column in the Authors table.
+SELECT DISTINCT Country
+FROM Authors;
+
+
+-- 5. Write an SQL query to return only Authors whose last name begins with S.
+SELECT * FROM Authors
+WHERE Name LIKE '% S%';
+
+
+-- 6. List the number of Authors in each country.
+SELECT COUNT(ID) AS Number_of_authors,Country 
+FROM Authors 
+GROUP BY Country;
+
+
+-- 7. Select all records from the Authors table, sort the result alphabetically by the column first name.
+SELECT *
+FROM Authors
+ORDER BY Name ASC;
+
+
+-- 8. Select all records from the Customers table, sort the result reversed alphabetically by the column last name.
+SELECT * 
+FROM Authors
+ORDER BY Name DESC;
+
+-- 9. Select all records where the Title column has the value 'Great ' from Books table.
+SELECT * 
+FROM Books
+WHERE Title LIKE '% Great %';
+
+
+-- 10. Use the NOT keyword to select all records where Country is NOT "USA".
+SELECT * 
+FROM Authors
+WHERE NOT Country='USA';
+
+
+-- 11. Select all records where the country column has the value 'USA' or 'India' from Authors table
+SELECT * 
+FROM Authors
+WHERE Country='USA' OR Country='India';
+
+
+-- 12. Select all records where the age column has the value BETWEEN 50 - 60 in Authors table.
+SELECT * 
+FROM Authors
+WHERE age BETWEEN 50 AND 60;
+
+
+-- 13. Use INNER to return the requested books with Author id.
+SELECT *
+FROM Books
+INNER JOIN BooksAuthors
+ON Books.ID = BooksAuthors.BookId;
+
+
+-- 14. Use the MIN function to select the record with the smallest value of the Age column from Authors table.
+SELECT MIN(age) AS youngest_author_age
+FROM Authors;
+
+
+-- 15. Choose the correct JOIN clause to view all books and their authors
+SELECT Books.Title As Book_Title , Authors.Name AS Author_Name
+FROM Books
+LEFT JOIN BooksAuthors
+ON Books.Id = BooksAuthors.BookID
+LEFT JOIN Authors
+ON  BooksAuthors.AuthorId = Authors.ID;
+-- WHERE Authors.Name IS NOT NULL;
