@@ -103,4 +103,5 @@ FROM booksauthors AS BA
  inner join books AS B
  on B.id = BA.bookid
   inner join authors AS A
+  on A.id = BA.AuthorId;
 ```
