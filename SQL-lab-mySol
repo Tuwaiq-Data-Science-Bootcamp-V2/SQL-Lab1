@@ -1,0 +1,84 @@
+
+CREATE TABLE BooksAuthors (
+    AuthorId INT NOT NULL,
+    BookId  INT NOT NULL,
+    FOREIGN KEY (AuthorId) REFERENCES Authors(Id),
+    FOREIGN KEY (BookId) REFERENCES Books(Id)
+);
+
+
+insert into BooksAuthors
+	(AuthorId, BookId)
+values
+	(1,1),
+	(2,2),
+	(3,3),
+	(4,4),
+	(5,5)
+	
+
+select country
+from authors
+
+
+select distinct(country)
+from authors
+
+
+select name
+from authors
+where name like '% S%'
+
+
+select count(id), country
+from authors
+group by country
+
+
+select *
+from authors
+order by name
+
+
+select *
+from authors
+order by name desc
+
+
+select *
+from books
+where title like '%Great%'
+
+
+select *
+from authors
+where country not like 'USA'
+
+
+select *, country
+from authors
+where country like 'USA' or country like 'India'
+
+
+select *
+from authors
+where age between 50 and 60
+
+
+select authorid , title
+from Books
+inner join booksAuthors 
+	on books.id = bookid and authorid = (Requested books)
+
+
+select *
+from authors
+where age in (select min(age)
+			 from authors)
+
+
+select  title as Book_title,Name as Author_Name
+from authors, booksauthors
+inner join books on
+	books.Id= booksauthors.bookId 
+	where authorid = authors.id
