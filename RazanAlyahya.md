@@ -97,6 +97,16 @@ FROM authors
 WHERE age= (select min(age) from authors);
 ```
 - Choose the correct `JOIN` clause to view all books and their authors
+1. View all books, whether they have an author or not
+```sql
+  SElECT A.id AS Authors_ID ,A.name AS Authors_Name ,B.id AS Books_ID,B.title AS Books_Name 
+  FROM books AS B
+  LEFT join booksauthors AS BA
+   on B.id = BA.bookid
+  LEFT JOIN authors AS A
+  on A.id = BA.AuthorId;
+```
+2. View all books that have an author
 ```sql
 SELECT A.id AS Authors_ID ,A.name AS Authors_Name ,B.id AS Books_ID,B.title AS Books_Name
 FROM booksauthors AS BA
