@@ -1,0 +1,50 @@
+DB LAB 1
+CREATE TABLE Authors(
+    ID SERIAL PRIMARY KEY,
+    Name VARCHAR(70) NOT NULL,
+    Country VARCHAR(100) NOT NULL);
+
+
+ALTER TABLE Authors
+ADD Age int;
+
+INSERT INTO Authors
+    (Name, Country, Age)
+VALUES
+    ('J.D. Salinger', 'USA',50),
+    ('F. Scott. Fitzgerald', 'USA',60),
+    ('Jane Austen', 'UK',44),
+    ('Scott Hanselman', 'USA',65),
+    ('Jason N. Gaylord', 'USA',58),
+    ('Pranav Rastogi', 'India',51),
+    ('Todd Miranda', 'USA',42),
+    ('Christian Wenz', 'USA',40)
+;
+
+
+
+CREATE TABLE Books (
+    Id SERIAL PRIMARY KEY ,
+    Title VARCHAR(50) NOT NULL
+    
+);
+
+INSERT INTO Books
+    (Id, Title)
+VALUES
+    (1, 'The Catcher in the Rye'),
+    (2, 'Nine Stories'),
+    (3, 'Franny and Zooey'),
+    (4, 'The Great Gatsby'),
+    (5, 'Tender id the Night'),
+    (6, 'Pride and Prejudice'),
+    (7, 'Professional ASP.NET 4.5 in C# and VB')
+;
+
+
+CREATE TABLE BooksAuthors (
+    AuthorId INT NOT NULL,
+    BookId  INT NOT NULL,
+    FOREIGN KEY (AuthorId) REFERENCES Authors(Id),
+    FOREIGN KEY (BookId) REFERENCES Books(Id)
+);
