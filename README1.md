@@ -4,8 +4,14 @@
 ## Mohamed Alshaikh 
 
 - Create a table "BooksAuthors" containing two fields ( AuthorId, BookId )
-### Done
-
+```sql
+CREATE TABLE BooksAuthors (
+    AuthorId INT NOT NULL,
+    BookId  INT NOT NULL,
+    FOREIGN KEY (AuthorId) REFERENCES Authors(Id),
+    FOREIGN KEY (BookId) REFERENCES Books(Id)
+);
+```
 - Insert at least 5 records into the BooksAuthors table.
 
 ```sql
