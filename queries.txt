@@ -1,0 +1,34 @@
+INSERT INTO booksauthors
+    (authorid,bookid)
+VALUES
+    (1,6),
+    (1,5),
+    (1,4),
+    (2,3),
+    (3,2),
+    (4,1)
+;
+
+select country from authors;
+
+select DISTINCT country from authors;
+
+select name from authors where name like '%s';
+
+select country,count(id) from authors group by country;
+
+select * from authors order by name;
+
+select * from authors order by name DESC;
+
+select * from books where title like '%Great%';
+
+select * from authors where not country = 'USA';
+
+select * from authors where country ='USA' or country = 'India';
+
+select * from authors where age between 50 and 60;
+
+select min(age) from authors ;
+
+select authors.name, books.title from booksauthors,authors,books where  booksauthors.authorid=authors.id and booksauthors.bookid=books.id;
