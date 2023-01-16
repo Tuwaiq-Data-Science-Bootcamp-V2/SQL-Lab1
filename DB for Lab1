@@ -138,4 +138,4 @@ LEFT JOIN BooksAuthors
 ON Books.Id = BooksAuthors.BookID
 LEFT JOIN Authors
 ON  BooksAuthors.AuthorId = Authors.ID;
--- WHERE Authors.Name IS NOT NULL;
+-- WHERE Authors.Name IS NOT NULL; This Line is to remove the books that have no authors
