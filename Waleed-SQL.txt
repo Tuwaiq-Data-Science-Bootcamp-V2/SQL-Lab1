@@ -1,0 +1,61 @@
+-- Waleed Mohammed almutairi
+
+
+-- Q1 Create a table "BooksAuthors" containing two fields ( AuthorId, BookId )		[This already exists]
+
+-- Q2 Insert at least 5 records into the BooksAuthors table. 		[This already exists]
+
+
+
+
+-- Q3 Write a statement that will select the Country column from the Authors table.
+
+select country from Authors;
+
+-- Q4 Select all the different values from the Country column in the Authors table.
+
+select DISTINCT country from Authors;
+
+-- Q5 Write an SQL query to return only Authors whose last name begins with S.
+
+select name from Authors where name LIKE '%S';
+
+-- Q6 List the number of Authors in each country.
+
+select COUNT(id), country from Authors group by country;
+
+-- Q7 Select all records from the Authors table, sort the result alphabetically by the column first name.
+
+select * from Authors order by name;
+
+-- Q8 Select all records from the Customers table, sort the result reversed alphabetically by the column last name.
+
+select * from Authors order by name DESC; -- If you want the authors table. Customer table does not exist.
+
+-- Q9 Select all records where the Title column has the value 'Great ' from Books table.
+
+select * from Books where Title Like '%Great%';
+
+-- Q10 Use the NOT keyword to select all records where Country is NOT "USA".
+
+select * from Authors where not country = 'USA';
+
+-- Q11 Select all records where the country column has the value 'USA' or 'India' from Authors table.
+
+select * from Authors where  country = 'USA' or country = 'India';
+
+-- Q12 Select all records where the age column has the value BETWEEN 50 - 60 in Authors table.
+
+select * from Authors where age between 50 and 60;
+
+-- Q13 Use INNER to return the requested books with authors id.
+
+select * from Books INNER JOIN booksauthors ON id = id;
+
+-- Q14 Use the MIN function to select the record with the smallest value of the Age column from Authors table.
+
+select MIN(age) from Authors;
+
+-- Q15 Choose the correct JOIN clause to view all books and their authors.
+
+select * from Books full outer join Authors on id=id; -- but here all id PRIMARY KEY
