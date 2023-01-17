@@ -41,7 +41,7 @@ Select * from Authors where Country  ='USA' or Country='India'
 Select * from Authors where age between 50 and 60
 
 ### Use INNER to return the requested items with customers id.
-Select Name ,Title from Authors Inner join Books ON Authors.Id=Books.Id
+select *from BooksAuthors inner join Authors on BooksAuthors.AuthorId =Authors.id
 
 ### Use the MIN function to select the record with the smallest value of the Age column from Authors table.
 Select min(age) from Authors
