@@ -1,5 +1,5 @@
 
-# Day7_Lab1_SQL
+# SQL-Lab1
 
 - Create a table "BooksAuthors" containing two fields ( AuthorId, BookId )
 - Insert at least 5 records into the BooksAuthors table.
